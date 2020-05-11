@@ -67,6 +67,34 @@ body {
   margin-left: 20px;
 }
 
+.marker-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popup {
+  background-color: white;
+  padding: 20px 10px 15px;  
+  position: relative;
+}
+
+.popup-close-btn {
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
+  right: 0;
+  top: 0;
+  border: 0;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  background-color: transparent;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+}
+
 // .mapboxgl-canvas-container {
 //   height: 100vh;
 // }

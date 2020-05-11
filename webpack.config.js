@@ -25,7 +25,8 @@ module.exports = {
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'http://localhost:4000',
+        // target: 'http://localhost:8000',
         secure: false
       }
     }

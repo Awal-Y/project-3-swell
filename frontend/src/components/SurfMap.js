@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import ReactMapGL, { LinearInterpolator, FlyToInterpolator, Marker, Popup, GeolocateControl } from 'react-map-gl'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import 'mapbox-gl/dist/mapbox-gl.css'
+
 const initialViewport = {
   width: 1000,
   height: 700,
@@ -9,14 +11,17 @@ const initialViewport = {
   longitude: -0.5805,
   zoom: 3
 }
+
 const errorInitialState = {
   errors: ''
 }
+
 const SurfMap = () => {
   const [showPopup, setShowPopup] = useState(null)
   const [spotdata, setSpotdata] = useState([])
   const [viewport, setViewport] = useState(initialViewport)
   const [error, setError] = useState(errorInitialState)
+
   useEffect(() => {
     const spotsArray = spotdata
     axios.get('/api/spots')
@@ -29,11 +34,13 @@ const SurfMap = () => {
       })
       .catch(err => setError({ errors: err.response.status }))
   }, [])
+
   function filterSurfData(goodspots) {
     return goodspots.filter(spots => {
       return spots.lat !== undefined || spots.long !== undefined
     })
   }
+
   function loadSurfMarkers() {
     // console.log(spotdata)
     return spotdata.map((spot, i) => {
@@ -42,39 +49,33 @@ const SurfMap = () => {
           key={'marker' + i}
           latitude={Number(spot.lat)}
           longitude={Number(spot.long)}
-        ><button
-          className="marker-btn" value={spot.id}
-          onClick={e => {
-            e.preventDefault()
-            console.log(showPopup)
-            setShowPopup(spot.id)
-          }}
         >
+          <button
+            className="marker-btn" value={spot.id}
+            onClick={e => {
+              e.preventDefault()
+              console.log(showPopup)
+              console.log(spot)
+              setShowPopup(spot.id)
+            }}
+          >
+            <div>🏄🏽‍</div>
           </button>
-          {/* <SurfPin size={20} onClick={e => {
-            e.preventDefault()
-           setShowPopup(spot)
-          }}/> */}
-          <div>🏄🏽‍</div>
           {showPopup === spot.id ? (
-            <Popup
-              tipSize={5}
-              latitude={Number(spot.lat)}
-              longitude={Number(spot.long)}
-              // onClose={() => {
-              //   setShowPopup(false)
-              // }}
-              anchor="top"
-            >
-              <div>
-                <Link to={`/spots/${spot.id}`}>
-                  <h2> {spot.name}
-                  </h2>
-                </Link>
-                <p>{spot.region}, {spot.country}</p>
-              </div>
-            </Popup>
-          ) : null}
+            <div className="popup">
+              <button
+                className="popup-close-btn"
+                onClick={e => {
+                  e.preventDefault()
+                  setShowPopup(null)
+                }}
+              >x</button>
+              <Link to={`/spots/${spot.id}`}>
+                <h2> {spot.name}
+                </h2>
+              </Link>
+              <p>{spot.region}, {spot.country}</p>
+            </div>) : null}
         </Marker>
       )
     })
