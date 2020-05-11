@@ -3,7 +3,7 @@
 ### ![](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png) General Assembly, Software Engineering Immersive
 
 
-[Link to final project](https://swell-project3.herokuapp.com/)
+[Link to final project](https://project-3-mongods-swell.herokuapp.com/)
 
 ## Overview
 
