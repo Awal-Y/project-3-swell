@@ -7,7 +7,7 @@
 
 ## Overview
 
-Fo r our third project on the General Assembly Software Engineering bootcamp, we were tasked with building a full-stack application, using our own front-end and back-end. This was a group project and we had 7 days to deliver our application. 
+Fo r ou r third project on the General Assembly Software Engineering bootcamp, we were tasked with building a full-stack application, using our own front-end and back-end. This was a group project and we had 7 days to deliver our application. 
 
 By Charlotte Thomas, [Awal Yusuf](https://github.com/awalyusuf), [Cuong  Tran](https://github.com/cmtran09) and [Abi James](https://github.com/ajames14).
 
