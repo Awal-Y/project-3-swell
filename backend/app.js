@@ -26,7 +26,7 @@ app.use('/api', router)
 
 app.use('/', express.static(dist))
 
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
   res.sendFile(path.join(dist, 'index.html'))
 });
 

@@ -9,7 +9,7 @@ import Comments from './CommentSection'
 
 const SingleSpot = (props) => {
 
-  window.scrollTo(0,0)
+  window.scrollTo(0, 0)
 
   const [data, setData] = useState([])
   const [rating, setRate] = useState(0)

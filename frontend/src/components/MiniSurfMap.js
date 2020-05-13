@@ -6,7 +6,7 @@ const initialViewport = {
   height: 500,
   latitude: 44.84044,
   longitude: -0.5805,
-  zoom: 8
+  zoom: 3
 }
 const errorInitialState = {
   errors: ''
@@ -21,7 +21,7 @@ const MiniSurfMap = ({ lat, lon }) => {
   useEffect(() => {
     spotLongLat(lat, lon)
   }, [lat, lon])
-  
+
   ///------------------------------------------------///
   ///  how do you update only parts of the object... ///
   ///------------------------------------------------///
@@ -29,8 +29,8 @@ const MiniSurfMap = ({ lat, lon }) => {
     setViewport({
       width: 300,
       height: 300,
-      latitude: parseInt(lat),
-      longitude: parseInt(lon),
+      latitude: Number(lat),
+      longitude: Number(lon),
       zoom: 10,
       transitionDuration: 3000,
       transitionInterpolator: new FlyToInterpolator()
@@ -49,8 +49,8 @@ const MiniSurfMap = ({ lat, lon }) => {
         onViewportChange={(viewport) => setViewport(viewport)}
       >
         <Marker
-          latitude={viewport.latitude}
-          longitude={viewport.longitude}
+          latitude={Number(lat)}
+          longitude={Number(lon)}
         >
           <div>🏄🏽‍</div>
         </Marker>
