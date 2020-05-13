@@ -7,7 +7,7 @@
 
 ## Overview
 
-Fo r ou r third project on the General Assembly Software Engineering bootcamp, we were tasked with building a full-stack application, using our own front-end and back-end. This was a group project and we had 7 days to deliver our application. 
+For our third project on the General Assembly Software Engineering Bootcamp, we were tasked with building a full-stack application, using our own front-end and back-end. This was a group project and we had 7 days to deliver our application. 
 
 By Charlotte Thomas, [Awal Yusuf](https://github.com/awalyusuf), [Cuong  Tran](https://github.com/cmtran09) and [Abi James](https://github.com/ajames14).
 
@@ -75,7 +75,7 @@ Firstly, we created seeds for our database with 50+ surf spots and an admin user
 - Comment Schema: for user comments.
 - Rating Schema: for user ratings.
 
-We set up our routing logic, controller functions and body parser middleware to better handle the body of api requests and responses. We also set up a secure route function using JsonWebToken, so that only registered and logged in users can post/put/delete. 
+We set up our routing logic, controller functions and body parser middleware to better handle the body of API requests and responses. We also set up a secure route function using JsonWebToken, so that only registered and logged in users can post/put/delete. 
 
 Within our User model, we also used Bcrypt to encrypt a user's password before the user is saved to the database, increasing the security of our API:
 
@@ -88,7 +88,6 @@ userSchema
     next() 
   })
 ```
-
 
 ### The Front-End
 
@@ -124,30 +123,42 @@ Once the user has clicked on a country they are interested in, the country page 
 Each surfing destination has its own page where we pull key information from our seed data to display on the page. In order to do this, we made use of React Hooks, fetching the data to be rendered using 'use effect': 
 
 ```
- useEffect(() => {
-  fetch(`/api/spots/${props.match.params.id}`)
-   .then(resp => resp.json())
-   .then(resp =>
-​    setData(resp)  )
-   .then(createRating())
-   .then(axios.get('/api/profile', {
-​    headers: { Authorization: `Bearer ${Auth.getToken()}` }
-   })
-​    .then((resp) => {
-​     setName(resp.data.username)
-​    }))
-  return () => console.log('Unmounting component')
- }, [rating])
- let response = {}
+  useEffect(() => {
+    fetch(`/api/spots/${props.match.params.id}`)
+    .then(resp => resp.json())
+    .then(resp =>
+  ​    setData(resp)  )
+    .then(createRating())
+    .then(axios.get('/api/profile', {
+  ​    headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })
+  ​    .then((resp) => {
+  ​     setName(resp.data.username)
+  ​    }))
+    return () => console.log('Unmounting component')
+  }, [rating])
+  let response = {}
 ```
 
-We display a mini surf map which we created as a component in our app and embedded it to be rendered  into our single page. The map takes in a longitude and latitude which was seeded in our data in order to display the markers on our map. 
+We display a mini surf map which we created as a component in our app and embedded it to be rendered into our single page. The map takes in longitude and latitude which was seeded in our data to display the markers on our map. 
 
-Another component displayed is our weather forecast chart which also takes in a longitude and latitude from our seeded data. We use the Stormglass API for our chart and chose a single source for our data. We use hooks in our components so we can pass a long and lat when rendering in our single page. 
+Another component displayed is our weather forecast chart which also takes in longitude and latitude from our seeded data. We use the Stormglass API for our chart and chose a single source for our data. We use hooks in our components so we can pass a longitude and latitude when rendering in our single page. 
 
-This page also included the comments section where registered users can post comments and delete their own previous comments. A user also rates the spot here, and can see the average user rating displayed by the wave images. 
+This page also included the comments section where registered users can post comments and delete their previous comments. A user also rates the spot here and can see the average user rating displayed by the wave images. 
 
-HERE
+**Forecast Charts**
+
+The Stormglass API provides marine weather data from several different sources, to display a single measurement to the user I decided to calculate an average from the different sources and display them using the react library, [react-circular-progressbar](https://www.npmjs.com/package/react-circular-progressbar).
+
+![Forecast-chart](https://i.imgur.com/amI89zz.gif)
+
+```
+  const averageSwellPeriod = (forecastData.swellPeriod.map(x => x.value)).reduce((a, b) => a + b, 0) / forecastData.swellPeriod.length
+```
+
+```
+  <CircularProgressbar className='progress-bar' value={averageSwellPeriod} minValue={0} maxValue={30} text={`${averageSwellPeriod.toFixed(2)}s`} />
+```
 
 **Share A Spot**
 
@@ -165,9 +176,21 @@ We also have a profile page where users can upload a photo, see all their favour
 
 ![Profile-1](https://i.imgur.com/HYieyOa.png)
 
-HERE
+**Map**
 
+To chart all the spots in our database onto the map we used the following function. The function maps through the array of surf spots and creates ```Marker``` instances for each surf spot.  Using thier corresponding lattitude and longittude coordinates.
 
+```
+function loadSurfMarkers() {
+    return spotdata.map((spot, i) => {
+      return (
+        <Marker
+          key={'marker' + i}
+          latitude={Number(spot.lat)}
+          longitude={Number(spot.long)}
+        >
+        ...
+```
 
 **Bugs**
 
