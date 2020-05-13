@@ -9,7 +9,7 @@
 
 For our third project on the General Assembly Software Engineering Bootcamp, we were tasked with building a full-stack application, using our own front-end and back-end. This was a group project and we had 7 days to deliver our application. 
 
-By Charlotte Thomas, [Awal Yusuf](https://github.com/awalyusuf), [Cuong  Tran](https://github.com/cmtran09) and [Abi James](https://github.com/ajames14).
+By [Charlotte Thomas](https://github.com/Charlotte-Thomas), [Awal Yusuf](https://github.com/awalyusuf) and [Abi James](https://github.com/ajames14).
 
 ### The Final Product 
 
