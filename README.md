@@ -96,14 +96,12 @@ For the front-end, we split the functionality logic amongst ourselves, each choo
 
 I was responsible for creating the:
 
-1. Profile page
-2. Ratings funtionality
-3. Admin privileges
-4. Edit & delete requests
-5. Card design
-6. Favourite functionality 
-7. Error message logic
-
+1. Login page
+2. Charting Surf spot conditions
+3. Country search functionality
+4. Surf spots filter functionality 
+5. Register new user page
+6. Map features
 
 **Homepage**
 
@@ -149,38 +147,7 @@ Another component displayed is our weather forecast chart which also takes in a 
 
 This page also included the comments section where registered users can post comments and delete their own previous comments. A user also rates the spot here, and can see the average user rating displayed by the wave images. 
 
-For ratings, an average is calculated from the ratings that are related to that particular spot. This average is then turned into a percentage of 5. Through a sequence of futher functions, the width of each wave image (that represents the rating) is found and rendered. 
-
-I decided to not round to the nearest rate, but instead to find the exact width that related to the average rating given by the users, to the nearest two decimal places. This gives a more accurate display to other users of the average rating of that spot.
-
-First a function specifies which waves need either 100% or 0% width. The second function then specifies the percent of the width which the variable image has (shown below). Here, waveList is an array of all the five images.
-
-	  const waveCheck = (w) => {
-	    const newRating = rating.toFixed(2)
-	    if (newRating.toString()[3] !== '0') {
-	      if (newRating.toString()[2] === '2' || newRating.toString()[2] === '4' || newRating.toString()[2] === '6' || newRating.toString()[2] === '8') {
-	        console.log(parseInt(newRating.toString()[3]) * 5 + '%')
-	        waveList[waveList.length - w].style.width = parseInt(newRating.toString()[3]) * 5 + '%'
-	      } else {
-	        waveList[waveList.length - w].style.width = (parseInt(rating.toString()[3]) + 10) / 20 * 100 + '%'
-	      }
-	    } else if (newRating.toString()[2] !== '0') {
-	      if (newRating === '0.20' || newRating === '0.40' || newRating === '0.60' || newRating === '0.80') {
-	        waveList[waveList.length - w].style.width = '100%'
-	      } else {
-	        waveList[waveList.length - w].style.width = '50%'
-	      }
-	    } else {
-	      waveList[waveList.length - w].style.width = newRating.toString()[0] * 100 + '%'
-	    }
-	  }
-	  
-Here the rating was **0.73** (w = 2):
-
-![](https://i.imgur.com/AALh45S.png)
-
-
-
+HERE
 
 **Share A Spot**
 
@@ -198,17 +165,7 @@ We also have a profile page where users can upload a photo, see all their favour
 
 ![Profile-1](https://i.imgur.com/HYieyOa.png)
 
-Admin have additional privileges, such as:
-
-1. The ability to approve of new surf spots created by users.
-2. Edit and delete any surf spot.
-<div align="center">
-  <img width="500px" height="300px" src="https://media.giphy.com/media/j6rMV9plIyzxV2mmzd/giphy.gif" />
-</div>
-<div align="center">
-  <img width="370px" height="440px" src="https://i.imgur.com/F8BhXPB.png">
-  <img width="370px" height="440px" src="https://i.imgur.com/kZcX5zf.png">
-</div>
+HERE
 
 
 
