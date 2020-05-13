@@ -20,7 +20,7 @@ Swell gives users the ability to:
 - Search for surf destinations around the world, filtering by country, difficulty, user rating or by selecting pins on a world map.
 - Find out essential information on each surf spot, such as location, a description, the type of wave, difficulty, the weather and surf conditions and the average user rating. Each surf spot also has a comments section where registered users can leave comments and advice for other surfers. 
 - Create a profile. Once a user has registered, they can add surf spots to their favourites list, comment on surf destinations, and even upload new surf spots to the database (with approval - see below). They can view their favourites and pending uploads via their profile page, where they can also upload or change their profile picture. 
-- Lastly, a registered user can upload a surf spot to share with other surfers, however, to control the quality of these, the administators of the site (us!) have to approve these before they are added to the database and displayed. We can see these when we login as the admin, and have a button to approve. 
+- Lastly, a registered user can upload a surf spot to share with other surfers, however, to control the quality of these, the administrators of the site (us!) have to approve these before they are added to the database and displayed. We can see these when we login as the admin, and have a button to approve. 
 
 
 ## Brief 
@@ -143,7 +143,7 @@ Each surfing destination has its own page where we pull key information from our
 
 We display a mini surf map which we created as a component in our app and embedded it to be rendered  into our single page. The map takes in a longitude and latitude which was seeded in our data in order to display the markers on our map. 
 
-Another component displayed is our weather forecast chart which also takes in a longitude and latitude from our seeded data. We use the stormglass API for our chart and chose a single source for our data. We use hooks in our components so we can pass a long and lat when rendering in our single page. 
+Another component displayed is our weather forecast chart which also takes in a longitude and latitude from our seeded data. We use the Stormglass API for our chart and chose a single source for our data. We use hooks in our components so we can pass a long and lat when rendering in our single page. 
 
 This page also included the comments section where registered users can post comments and delete their own previous comments. A user also rates the spot here, and can see the average user rating displayed by the wave images. 
 
@@ -171,13 +171,13 @@ HERE
 
 **Bugs**
 
-- Mobile compatibility: some feautures to be tweaked to be made mobile friendly.
-- Photo uploads: currenty the front-end registration form requires a user to provide a photo when they sign up. This is not required on the back end and from a UX point of view should not be the case.
+- Mobile compatibility: some features to be tweaked to be made mobile friendly.
+- Photo uploads: currently the front-end registration form requires a user to provide a photo when they sign up. This is not required on the back end and from a UX point of view should not be the case.
 
 
 ## Challenges
 
-- Mapbox: Working with mapbox posed a bit of a challenge due to data conversation. Mapbox is data strict and fetching our data from our api required a lot of refactoring in order to suit the data format especially for the longtitude and lattitude. Next time, we would rather use a GeoJson file and insert our data into it rather than fetching directly from our API. 
+- Mapbox: Working with Mapbox posed a bit of a challenge due to data conversion. Mapbox is data strict and fetching our data from our api required a lot of refactoring in order to suit the data format especially for the longitude and latitude. Next time, we would rather use a GeoJson file and insert our data into it rather than fetching directly from our API. 
 
 ## Wins
 
@@ -188,7 +188,7 @@ HERE
 
 ## Future Features
 
-We were happy with the overall funcionality of our website, however, there were a few things that we would have added. In particular:
+We were happy with the overall functionality of our website, however, there were a few things that we would have added. In particular:
 
 - When a user adds a new spot, provide functionality so that they can upload a beach/spot name to identify the location, rather than the longitude and latitude (as this is a bit cumbersome for users). 
 - Mobile design.
