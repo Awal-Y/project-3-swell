@@ -1,13 +1,10 @@
-# Project-3: Swell - A MERN Stack App
+### ![](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png)
 
-### ![](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png) General Assembly, Software Engineering Immersive
-
-
-[Link to final project](https://project-3-mongods-swell.herokuapp.com/)
+# Project 3 - Swell
 
 ## Overview
 
-For our third project on the General Assembly Software Engineering Bootcamp, we were tasked with building a full-stack application, using our own front-end and back-end. This was a group project and we had 7 days to deliver our application. 
+For our third project on the General Assembly Software Engineering Bootcamp, we were tasked with building a (MERN) full-stack application, using our own front-end and back-end. This was a group project and we had 7 days to deliver our application. The application can be launched [here](https://project-3-mongods-swell.herokuapp.com/).
 
 By [Charlotte Thomas](https://github.com/Charlotte-Thomas), [Awal Yusuf](https://github.com/awalyusuf) and [Abi James](https://github.com/ajames14).
 
